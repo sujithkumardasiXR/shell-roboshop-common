@@ -9,6 +9,7 @@ Y="\e[33m"
 N="\e[0m"
 
 START_TIME=$(date +%s)
+MONGODB_HOST=mongodb.shinoys.online
 
 
 mkdir -p $LOGS_FOLDER
@@ -85,6 +86,12 @@ systemd_setup(){
     systemctl start $app_name
     VALIDATE $? "Starting and enabling $app_name"
 }
+
+app_restart(){
+    systemctl restart $app_name
+    VALIDATE $? "Restarting $app_name"
+}
+
 
 print_total_time(){
     END_TIME=$(date +%s)
