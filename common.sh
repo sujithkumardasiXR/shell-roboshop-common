@@ -1,3 +1,5 @@
+#!/bin/bash
+
 USERID=$(id -u)
 LOGS_FOLDER="/var/log/shell-roboshop"
 LOGS_FILE="$LOGS_FOLDER/$0.log"
@@ -7,6 +9,9 @@ Y="\e[33m"
 N="\e[0m"
 
 START_TIME=$(date +%s)
+
+
+mkdir -p $LOGS_FOLDER
 
 echo "$(date "+%Y-%m-%d %H:%M:%S") | Script started executing at: $(date)" | tee -a $LOGS_FILE
 
@@ -18,7 +23,7 @@ check_root()
     fi
 }
 
-mkdir -p $LOGS_FOLDER
+
 
 VALIDATE()
 {
